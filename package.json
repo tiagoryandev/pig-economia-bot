@@ -1,0 +1,17 @@
+{
+  "name": "nome-bot",
+  "version": "1.0.0",
+  "description": "Um Bot de Economia simples.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tia#1000",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "parse-ms": "^2.1.0",
+    "quick.db": "^7.1.1"
+  }
+}
