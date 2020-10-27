@@ -12,7 +12,9 @@ Caso queira entrar em contato com o criador do código, pode conversar pelo Twit
 #### :bust_in_silhouette: INFORMAÇÕES:
 
 **Autor:** Tia#1000
+
 **ID:** 568182075929395210
+
 **Outros Projetos**: Mizuara Bot
 
 #### :paperclip: LINKS:
