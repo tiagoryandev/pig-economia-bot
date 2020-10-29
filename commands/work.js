@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
-    
     let user = message.author;
     
     let author = await db.fetch(`work_${message.guild.id}_${user.id}`)
