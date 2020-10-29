@@ -3,7 +3,6 @@ const db = require("quick.db");
 const ms = require("parse-ms");
 
 module.exports.run = async (client, message, args) => {
-    
     let autor = message.author;
     
     let user = message.mentions.users.first();
