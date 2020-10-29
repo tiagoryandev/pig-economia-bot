@@ -9,6 +9,27 @@ Caso queira entrar em contato com o criador do código, pode conversar pelo Twit
 * parse-ms V2.1.0
 * quick.db V7.1.1
 
+#### :computer: ARQUITETURA DE CÓDIGO: 
+
+Construção de Comandos:
+```javascript
+const Discord = require("discord.js"); // Dependência da Discord.js
+const db = require("quick.db"); // Dependência da Quick.db
+const ms = require("parse-ms"); // Dependência da Parse-ms
+
+module.exports.run = asycn (client, message, args) => {
+  //Código
+}
+```
+
+Construção de Configurações:
+```json
+{
+  "prefix": "PREFIXO",
+  "token": "TOKEN" 
+}
+```
+
 #### :bust_in_silhouette: INFORMAÇÕES:
 
 **Autor:** Tia#1000
