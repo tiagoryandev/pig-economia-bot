@@ -15,7 +15,7 @@ Caso queira entrar em contato com o criador do código, pode conversar pelo Twit
 
 **ID:** 568182075929395210
 
-**Outros Projetos**: Mizuara Bot
+**Outros Projetos**: Mizuhara Bot
 
 #### :paperclip: LINKS:
 
