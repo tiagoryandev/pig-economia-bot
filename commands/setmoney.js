@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
-    
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send(`🚫 **|** ${message.author}, você tem que ter a permissão de **Administrador** para usar esse comando!`);
     };
