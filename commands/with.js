@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
-    
     let member = db.fetch(`bank_${message.guild.id}_${message.author.id}`);
 
     let embed2 = new Discord.MessageEmbed()
