@@ -1,7 +1,7 @@
 {
-  "name": "nome-bot",
+  "name": "BotEconomia",
   "version": "1.0.0",
-  "description": "Um Bot de Economia simples.",
+  "description": "Documentação do Bot de Economia para Discord feito pelo Tia.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
