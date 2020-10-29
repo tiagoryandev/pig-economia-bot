@@ -9,7 +9,8 @@
 	Autor: Tia#1000
 	Website: https://www.mizuhara.tk/
 	Twitter: @BotMizuhara
-
+  Meu Servidor: https://discord.gg/QraTZUq
+  
 	Obrigado por ler meu código! <3
 */
 
