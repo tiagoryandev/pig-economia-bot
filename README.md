@@ -17,7 +17,7 @@ const Discord = require("discord.js"); // Dependência da Discord.js
 const db = require("quick.db"); // Dependência da Quick.db
 const ms = require("parse-ms"); // Dependência da Parse-ms
 
-module.exports.run = asycn (client, message, args) => {
+module.exports.run = async (client, message, args) => {
   //Código
 }
 ```
