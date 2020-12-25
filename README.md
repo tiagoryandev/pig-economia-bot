@@ -32,7 +32,7 @@ Construção de Configurações:
 
 #### :bust_in_silhouette: INFORMAÇÕES:
 
-**Autor:** Tia#1000
+**Autor:** TiaGoiNsaNy#9903
 
 **ID:** 568182075929395210
 
