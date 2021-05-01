@@ -47,7 +47,7 @@ module.exports.run = async (client, message, args) => {
             let amount = Math.floor(Math.random() * autor_money) + 1;
             
             let moneyEmbed = new Discord.MessageEmbed()
-            .setTitle("👮 **|** Prezo por Roubo")
+            .setTitle("👮 **|** Preso por Roubo")
             .setColor("RED")
             .setDescription(`Você realizou um roubo e não se saiu muito bem!\nE você perdeu um total de **R$${amount}**!`);
            
