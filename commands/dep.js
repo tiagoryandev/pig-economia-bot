@@ -9,9 +9,9 @@ module.exports.run = async (client, message, args) => {
     
    
     if(args.includes("all") == true) {  // verificação pra depositar tudo e não precisar ficar digitando o valor 
-        let cart = db.fetch(`money_${message.guild.id}_${user.id}`)
-        db.add(`bank_${message.guild.id}_${message.author.id}`, cart);
-        db.subtract(`money_${message.guild.id}_${message.author.id}`, cart);
+        let alll = db.fetch(`money_${message.guild.id}_${user.id}`)
+        db.add(`bank_${message.guild.id}_${message.author.id}`, alll);
+        db.subtract(`money_${message.guild.id}_${message.author.id}`, alll);
 
         let embedi = new Discord.MessageEmbed()
     .setTitle("🏦 **|** Deposito")
