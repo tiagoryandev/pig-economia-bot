@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
+const ms = require("parse-ms"); // Importando o ms
 
 module.exports.run = async (client, message, args) => {
     let user = message.author;
