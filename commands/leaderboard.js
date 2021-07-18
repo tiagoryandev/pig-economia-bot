@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
-    let money = db.all().filter(data => data.ID.startsWith(`money_${message.guild.id}`)).sort((a, b) => b.data - a.data);
-    
+    let user = message.author
+    let money = db.all().filter(data => data.ID.startsWith(`bank_${message.guild.id}_${user.id}`)).sort((a, b) => b.data - a.data); // O rank é melhor classificando pelo saldo do banco
     let money1;
     
     if(money.length > 10){
