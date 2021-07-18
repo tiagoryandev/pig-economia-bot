@@ -2,6 +2,25 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
+
+    var user = message.author;
+    var moneyy = db.fetch(`money_${message.guild.id}_${user.id}`)
+    if(moneyy === null) money = 0;
+    
+   
+    if(args.includes("all") == true) {  // verificação pra depositar tudo e não precisar ficar digitando o valor 
+        let cart = db.fetch(`money_${message.guild.id}_${user.id}`)
+        db.add(`bank_${message.guild.id}_${message.author.id}`, cart);
+        db.subtract(`money_${message.guild.id}_${message.author.id}`, cart);
+
+        let embedi = new Discord.MessageEmbed()
+    .setTitle("🏦 **|** Deposito")
+    .setColor("#008000")
+    .setDescription(`💵 Você depositou no **Banco** um valor de **R$${cart}**!`);
+
+        message.channel.send(`${message.author}`, embedi)
+        return
+    }
     let member = db.fetch(`money_${message.guild.id}_${message.author.id}`);
     if(member == null) member = 0;
 
@@ -29,6 +48,8 @@ module.exports.run = async (client, message, args) => {
     if(args[0] < 0) {
         return message.channel.send(`${message.author}`, embed5);
     };
+
+    
     let embed6 = new Discord.MessageEmbed()
     .setColor("#008000")
     .setDescription(`🚫 **|** Você tem que colocar um valor numerico para realizar o deposito!`);
