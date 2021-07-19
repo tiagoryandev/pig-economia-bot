@@ -3,15 +3,19 @@ const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
 
+   
+
     var user = message.author;
     var moneyy = db.fetch(`money_${message.guild.id}_${user.id}`)
     if(moneyy === null) money = 0;
     
    
-    if(args.includes("all") == true) {  // verificação pra depositar tudo e não precisar ficar digitando o valor 
-        let alll = db.fetch(`money_${message.guild.id}_${user.id}`)
-        db.add(`bank_${message.guild.id}_${message.author.id}`, alll);
-        db.subtract(`money_${message.guild.id}_${message.author.id}`, alll);
+    if(args.includes("all") == true) {  
+        // verificação pra depositar tudo e não precisar ficar digitando o valor 
+        let cart = db.fetch(`money_${message.guild.id}_${user.id}`)
+        if(cart == null) cart = 0
+        db.add(`bank_${message.guild.id}_${message.author.id}`, cart);
+        db.subtract(`money_${message.guild.id}_${message.author.id}`, cart);
 
         let embedi = new Discord.MessageEmbed()
     .setTitle("🏦 **|** Deposito")
