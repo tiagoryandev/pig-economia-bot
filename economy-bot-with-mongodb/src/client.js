@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const Discord = require("discord.js");
 
 class DiscordClient {
@@ -11,12 +13,17 @@ class DiscordClient {
 			]
 		});
     
-		this.start();
+		this.#events();
+		this.client.login();
 	}
 
-	start() {
-		this.client.login().then(() => {
-			console.log(this.client.user);
+	#events() {
+		const events = fs.readdirSync(path.resolve(__dirname, "events"));
+
+		events.forEach(eventFile => {
+			const { eventName, handler } = require(path.resolve(__dirname, "events", eventFile));
+
+			this.client.on(eventName, handler.bind(null, this.client));
 		});
 	}
 }
