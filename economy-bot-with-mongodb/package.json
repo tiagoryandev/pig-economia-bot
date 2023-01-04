@@ -1,0 +1,24 @@
+{
+  "name": "economy-bot-with-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [
+    "discord.js",
+    "bot",
+    "economy",
+    "mongodb"
+  ],
+  "author": "Tiago Ryan",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.31.0"
+  }
+}
