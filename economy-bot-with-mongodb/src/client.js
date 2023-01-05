@@ -12,6 +12,8 @@ class DiscordClient {
 				Discord.GatewayIntentBits.GuildMembers
 			]
 		});
+
+		this.client.commands = [];
     
 		this.#loadEvents();
 		this.client.login();
@@ -24,6 +26,16 @@ class DiscordClient {
 			const { eventName, handler } = require(path.resolve(__dirname, "events", eventFile));
 
 			this.client.on(eventName, handler.bind(null, this.client));
+		});
+	}
+
+	#loadCommands() {
+		const commands = this.readdirSync(path.resolve(__dirname, "commands"));
+
+		commands.forEach(commandsFile => {
+			const { execute } = require(path.resolve(__dirname, "commands", commandsFile));
+
+			this.client.commands.push(execute);
 		});
 	}
 }
