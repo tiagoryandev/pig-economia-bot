@@ -13,11 +13,11 @@ class DiscordClient {
 			]
 		});
     
-		this.#events();
+		this.#loadEvents();
 		this.client.login();
 	}
 
-	#events() {
+	#loadEvents() {
 		const events = fs.readdirSync(path.resolve(__dirname, "events"));
 
 		events.forEach(eventFile => {

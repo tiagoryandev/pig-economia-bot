@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
+    "deploy:commands": "node ./src/deploy-commands.js",
     "start": "node ."
   },
   "keywords": [
