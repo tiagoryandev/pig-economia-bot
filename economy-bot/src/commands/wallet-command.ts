@@ -2,11 +2,22 @@ import { SlashCommandBuilder } from "discord.js";
 
 import { SlashCommandBase } from "../interfaces/slash-command-base";
 
-export default {
+const WalletCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
 		.setName("wallet")
-		.setDescription("Wallet Command"),
+		.setDescription("💰 See all your wallet's monetary information."),
 	execute: async (client, interaction) => {
-		await interaction.reply("Do you not have wallet");
+		const currency = Math.floor(Math.random() * 10000) + 1000;
+		const currencyFormated = currency.toLocaleString("en-US", {
+			style: "currency",
+			currency: "USD",
+			minimumFractionDigits: 2
+		});
+
+		await interaction.reply({
+			content: `💰 **|** you currently have **${currencyFormated}** in your wallet`
+		});
 	}
-} as SlashCommandBase;
+};
+
+export default WalletCommand;
