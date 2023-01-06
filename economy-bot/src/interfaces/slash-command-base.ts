@@ -1,6 +1,11 @@
-import { SlashCommandBuilder, Awaitable } from "discord.js";
+import {
+	Client,
+	ChatInputCommandInteraction,
+	SlashCommandBuilder,
+	Awaitable
+} from "discord.js";
 
 export interface SlashCommandBase {
   data: SlashCommandBuilder;
-  execute: () => Awaitable<void>;
+  execute: (client: Client<true>, interaction: ChatInputCommandInteraction) => Awaitable<void>;
 }
