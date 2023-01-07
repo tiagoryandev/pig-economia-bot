@@ -2,7 +2,13 @@ import "dotenv/config";
 
 import fs from "fs";
 import path from "path";
+import chalk from "chalk";
+import dotenv from "dotenv";
 import { REST, Routes } from "discord.js";
+
+if (process.env.NODE_ENV !== "production") {
+	dotenv.config();
+}
 
 import { SlashCommandBase } from "./interfaces/slash-command-base";
 
@@ -32,5 +38,5 @@ const deployCommands = async () => {
 };
 
 deployCommands()
-	.then(() => console.log("All Commands as Deployeds"))
-	.catch(error => console.log("Error", error));
+	.then(() => console.log(chalk.bold.yellow("✓ All slash commands have been deployed successfully!")))
+	.catch(error => console.log(chalk.bold.red("× A problem occurred while deploying the slash commands:"), chalk.gray(error.message)));

@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 import { EventBase } from "../interfaces/event-base";
 
 const ReadyEvent: EventBase<"ready"> = {
@@ -6,12 +8,12 @@ const ReadyEvent: EventBase<"ready"> = {
 		client.user.setPresence({
 			activities: [
 				{
-					name: "Modern Discord Application | By: tiagoryandev"
+					name: "Andromni | By: tiagoryandev"
 				}
 			]
 		});
 
-		console.log("Discord Application is Running...");
+		console.log(chalk.bold.yellow("✓ Andromni Bot is Running."));
 	}
 };
 

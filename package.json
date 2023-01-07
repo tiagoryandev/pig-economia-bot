@@ -1,5 +1,5 @@
 {
-  "name": "modern-discord-application",
+  "name": "andromni-bot",
   "version": "1.0.0",
   "description": "",
   "main": "./build/app.js",
@@ -15,6 +15,7 @@
   "author": "Tiago Ryan",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.2.0",
     "discord.js": "^14.7.1"
   },
   "devDependencies": {

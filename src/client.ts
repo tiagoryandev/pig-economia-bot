@@ -36,12 +36,16 @@ export class DiscordApplication {
 	}
 
 	private async loadSlashCommands() {
-		const commandFolder = fs.readdirSync(path.resolve(__dirname, "commands"));
+		const folders = fs.readdirSync(path.resolve(__dirname, "commands"));
 		
-		for (const file of commandFolder) {
-			const command: SlashCommandBase = (await import(path.resolve(__dirname, "commands", file))).default;
-
-			this.client.commands.set(command.data.toJSON().name, command);
+		for (const folder of folders) {
+			const commandFolder = fs.readdirSync(path.resolve(__dirname, "commands", folder));
+	
+			for (const file of commandFolder) {
+				const command: SlashCommandBase = (await import(path.resolve(__dirname, "commands", folder, file))).default;
+			
+				this.client.commands.set(command.data.toJSON().name, command);
+			}
 		}
 	}
 }
