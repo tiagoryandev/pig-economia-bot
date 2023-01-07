@@ -6,7 +6,7 @@ const ReadyEvent: EventBase<"ready"> = {
 		client.user.setPresence({
 			activities: [
 				{
-					name: "Discord Bot Economy | By: tiagoryandev"
+					name: "Modern Discord Application | By: tiagoryandev"
 				}
 			]
 		});

@@ -1,5 +1,5 @@
 {
-  "name": "economy-bot-with-mongodb",
+  "name": "modern-discord-application",
   "version": "1.0.0",
   "description": "",
   "main": "./build/app.js",
@@ -8,10 +8,9 @@
     "dev": "tsx ./src/app.ts"
   },
   "keywords": [
+    "modern",
     "discord.js",
-    "bot",
-    "economy",
-    "mongodb"
+    "bot"
   ],
   "author": "Tiago Ryan",
   "license": "MIT",
