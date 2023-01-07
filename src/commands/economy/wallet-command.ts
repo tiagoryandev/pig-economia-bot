@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "discord.js";
 
-import { SlashCommandBase } from "../interfaces/slash-command-base";
+import { SlashCommandBase } from "../../interfaces/slash-command-base";
 
 const WalletCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
