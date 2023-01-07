@@ -1,1 +1,1 @@
-# Aplicações Discord Modernas
+# Andromni Discord Bot
