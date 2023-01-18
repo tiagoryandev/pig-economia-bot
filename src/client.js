@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
 
 const config = require("../config.json");
 
@@ -18,6 +19,7 @@ class DiscordApplication {
 		this.client.commands = new Discord.Collection();
 		this.loadEvents();
 		this.loadSlashCommands();
+		this.connectDatabase();
 		this.client.login(config.clientToken);
 	}
 
@@ -43,6 +45,17 @@ class DiscordApplication {
 				this.client.commands.set(command.data.toJSON().name, command);
 			}
 		}
+	}
+
+	async connectDatabase() {
+		mongoose.Promise = global.Promise;
+		mongoose.set("strictQuery", true);
+
+		mongoose.connect(config.mongodb.url, {
+			authSource: "admin",
+			user: config.mongodb.username,
+			pass: config.mongodb.password
+		});
 	}
 }
 
