@@ -1,6 +1,4 @@
-import { EventBase } from "../interfaces/event-base";
-
-const ReadyEvent: EventBase<"interactionCreate"> = {
+const InteractionCreateEvent  = {
 	eventType: "interactionCreate",
 	execute: async (client, interaction) => {
 		if (!interaction.isChatInputCommand()) return;
@@ -13,4 +11,4 @@ const ReadyEvent: EventBase<"interactionCreate"> = {
 	}
 };
 
-export default ReadyEvent;
+module.exports = InteractionCreateEvent;

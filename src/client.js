@@ -1,13 +1,10 @@
-import fs from "fs";
-import path from "path";
-import Discord from "discord.js";
+const fs = require("fs");
+const path = require("path");
+const Discord = require("discord.js");
 
-import { EventBase } from "./interfaces/event-base";
-import { SlashCommandBase } from "./interfaces/slash-command-base";
+const config = require("../config.json");
 
-export class DiscordApplication {
-	private client: Discord.Client<true>;
-
+class DiscordApplication {
 	constructor() {
 		this.client = new Discord.Client({
 			intents: [
@@ -19,33 +16,34 @@ export class DiscordApplication {
 		});
     
 		this.client.commands = new Discord.Collection();
-
 		this.loadEvents();
 		this.loadSlashCommands();
-		this.client.login(process.env.DISCORD_CLIENT_TOKEN);
+		this.client.login(config.clientToken);
 	}
 
-	private async loadEvents() {
+	async loadEvents() {
 		const eventFolder = fs.readdirSync(path.resolve(__dirname, "events"));
 
 		for (const file of eventFolder) {
-			const event: EventBase<any> = (await import(path.resolve(__dirname, "events", file))).default;
+			const event = require(`./events/${file}`);
 
 			this.client.on(event.eventType, event.execute.bind(null, this.client));
 		}
 	}
 
-	private async loadSlashCommands() {
+	async loadSlashCommands() {
 		const folders = fs.readdirSync(path.resolve(__dirname, "commands"));
 		
 		for (const folder of folders) {
 			const commandFolder = fs.readdirSync(path.resolve(__dirname, "commands", folder));
 	
 			for (const file of commandFolder) {
-				const command: SlashCommandBase = (await import(path.resolve(__dirname, "commands", folder, file))).default;
+				const command = require(`./commands/${folder}/${file}`);
 			
 				this.client.commands.set(command.data.toJSON().name, command);
 			}
 		}
 	}
 }
+
+module.exports = DiscordApplication;

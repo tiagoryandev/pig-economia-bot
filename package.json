@@ -1,29 +1,21 @@
 {
   "name": "pig-economia-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "./build/app.js",
+  "main": "./src/app.js",
   "scripts": {
-    "deploy:commands": "tsx ./src/deploy-commands.ts",
-    "dev": "tsx ./src/app.ts"
+    "setup:commands": "node ./src/deploy-commands.js",
+    "start": "node ."
   },
   "keywords": [
-    "modern",
     "discord.js",
-    "bot"
+    "economia"
   ],
   "author": "Tiago Ryan",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^5.2.0",
     "discord.js": "^14.7.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "@typescript-eslint/parser": "^5.48.0",
-    "dotenv": "^16.0.3",
-    "eslint": "^8.31.0",
-    "tsx": "^3.12.1",
-    "typescript": "^4.9.4"
+    "eslint": "^8.31.0"
   }
 }

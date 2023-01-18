@@ -1,9 +1,7 @@
-import { SlashCommandBuilder } from "discord.js";
+const Discord = require("discord.js");
 
-import { SlashCommandBase } from "../../interfaces/slash-command-base";
-
-const WalletCommand: SlashCommandBase = {
-	data: new SlashCommandBuilder()
+const WalletCommand = {
+	data: new Discord.SlashCommandBuilder()
 		.setName("carteira")
 		.setDescription("💰 Veja as informações monetárias de sua carteira."),
 	execute: async (client, interaction) => {
@@ -20,4 +18,4 @@ const WalletCommand: SlashCommandBase = {
 	}
 };
 
-export default WalletCommand;
+module.exports = WalletCommand;

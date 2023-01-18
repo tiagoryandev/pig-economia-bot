@@ -1,6 +1,5 @@
 node_modules
-build
 
-.env
+config.json
 package-lock.json
 yarn.lock
