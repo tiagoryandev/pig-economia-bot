@@ -8,12 +8,12 @@ const ReadyEvent: EventBase<"ready"> = {
 		client.user.setPresence({
 			activities: [
 				{
-					name: "Andromni | By: tiagoryandev"
+					name: "Pig Economia | By: tiagoryandev"
 				}
 			]
 		});
 
-		console.log(chalk.bold.yellow("✓ Andromni Bot is Running."));
+		console.log(chalk.bold.yellow("✓ Pig Economia foi iniciado com Sucesso."));
 	}
 };
 
