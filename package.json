@@ -1,10 +1,9 @@
 {
   "name": "pig-economia-bot",
   "version": "1.0.0",
-  "main": "./src/app.js",
+  "main": "",
   "scripts": {
-    "setup:commands": "node ./src/deploy-commands.js",
-    "start": "node ."
+    "deploy-commands:dev": "tsx ./src/deploy-commands.ts"
   },
   "keywords": [
     "discord.js",
