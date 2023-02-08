@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from "discord.js";
 
 import prisma from "../../libs/prisma";
 import { SlashCommandBase } from "../../interfaces/slash-command-base.interface";
+import { formatCurrency } from "../../helpers/format-values";
 
 const WalletCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
@@ -23,15 +24,18 @@ const WalletCommand: SlashCommandBase = {
 			});
 		}
 
-		const currency = userData.wallet;
-		const currencyFormated = currency.toLocaleString("pt-BR", {
-			style: "currency",
-			currency: "BRL",
-			minimumFractionDigits: 2
-		});
+		const wallet = Number(userData.wallet) / 100;
+		const bank = Number(userData.bank) / 100;
 
 		await interaction.reply({
-			content: `💰 **|** Você tem na sua cateria atualmente **${currencyFormated}**.`
+			content: [
+				`:money_with_wings: **|** ${interaction.user.toString()}, seus dados monetários atuais:`,
+				`> :moneybag: **Carteira:** \`${formatCurrency(wallet)}\``,
+				`> :bank: **Banco:** \`${formatCurrency(bank)}\``,
+				`> :scales: **Patrimônio Total:** \`${formatCurrency(wallet + bank)}\``,
+				"",
+				`*Ultima atualização: <t:${Math.floor(userData.updatedAt.getTime() / 1000)}:R>*`
+			].join("\n")
 		});
 	}
 };
