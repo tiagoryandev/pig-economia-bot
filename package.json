@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-    "deploy-commands:dev": "tsx ./src/deploy-commands.ts"
+    "deploy-commands:dev": "tsx ./src/deploy-commands.ts",
+    "start:dev": "tsx watch ./src/app.ts" 
   },
   "keywords": [
     "discord.js",
