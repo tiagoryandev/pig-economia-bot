@@ -1,1 +1,0 @@
-# Pig Economia Discord Bot
