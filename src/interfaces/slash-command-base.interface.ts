@@ -6,6 +6,6 @@ import {
 } from "discord.js";
 
 export interface SlashCommandBase {
-  data: SlashCommandBuilder;
+	data: Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
   execute: (client: Client<true>, interaction: ChatInputCommandInteraction) => Awaitable<void>;
 }

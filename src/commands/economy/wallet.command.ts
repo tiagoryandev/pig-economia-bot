@@ -7,19 +7,26 @@ import { formatCurrency } from "../../helpers/format-values";
 const WalletCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
 		.setName("carteira")
-		.setDescription("💰 Veja as informações monetárias de sua carteira."),
+		.setDescription("💰 Veja as informações monetárias de sua carteira.")
+		.addUserOption(input =>
+			input
+				.setName("usuário")
+				.setDescription("Usuário que você deseja ver as informações monetárias.")
+		),
 	execute: async (client, interaction) => {
+		const user = interaction.options.getUser("usuário") || interaction.user;
+
 		let userData = await prisma.users.findUnique({
 			where: {
-				id: interaction.user.id,
+				id: user.id,
 			}
 		});
 
 		if (!userData) {
 			userData = await prisma.users.create({
 				data: {
-					id: interaction.user.id,
-					userTag: interaction.user.tag
+					id: user.id,
+					userTag: user.tag
 				}
 			});
 		}
@@ -29,7 +36,7 @@ const WalletCommand: SlashCommandBase = {
 
 		await interaction.reply({
 			content: [
-				`:money_with_wings: **|** ${interaction.user.toString()}, seus dados monetários atuais:`,
+				`:money_with_wings: **|** Informações monetárias de ${user.toString()}:`,
 				`> :moneybag: **Carteira:** \`${formatCurrency(wallet)}\``,
 				`> :bank: **Banco:** \`${formatCurrency(bank)}\``,
 				`> :scales: **Patrimônio Total:** \`${formatCurrency(wallet + bank)}\``,
