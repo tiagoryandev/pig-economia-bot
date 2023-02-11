@@ -13,8 +13,6 @@ model Users {
   wallet      BigInt    @default(0)
   bank        BigInt    @default(0)
   lastDaily   DateTime? @map("last_daily")
-  lastWeekly  DateTime? @map("last_weekly")
-  lastMonthly DateTime? @map("last_monthly")
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt
 
