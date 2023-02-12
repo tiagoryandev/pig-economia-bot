@@ -8,13 +8,14 @@ datasource db {
 }
 
 model Users {
-  id          String    @id @map("id")
-  userTag     String    @map("user_tag") @db.VarChar(70)
-  wallet      BigInt    @default(0)
-  bank        BigInt    @default(0)
-  lastDaily   DateTime? @map("last_daily")
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt
+  id        String    @id @map("id")
+  userTag   String    @map("user_tag") @db.VarChar(70)
+  wallet    BigInt    @default(0)
+  bank      BigInt    @default(0)
+  lastDaily DateTime? @map("last_daily")
+  lastWork  DateTime? @map("last_work")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt
 
   @@map("users")
 }
