@@ -1,10 +1,14 @@
 {
   "name": "pig-economia-bot",
   "version": "1.0.0",
-  "main": "",
+  "main": "./build/app.js",
   "scripts": {
-    "deploy-commands:dev": "tsx ./src/deploy-commands.ts",
-    "start:dev": "tsx watch ./src/app.ts"
+    "dev": "tsx ./src/app.ts",
+    "dev:watch": "tsx watch ./src/app.ts",
+    "dev:deploy": "tsx ./src/deploy-commands.ts",
+    "prisma:deploy": "npx prisma migrate deploy",
+    "build": "rimraf ./build && npm run prisma:deploy && tsc",
+    "start": "node ."
   },
   "keywords": [
     "discord.js",
@@ -14,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^4.10.1",
-    "chalk": "^5.2.0",
+    "chalk": "^4.1.2",
     "discord.js": "^14.7.1"
   },
   "devDependencies": {
