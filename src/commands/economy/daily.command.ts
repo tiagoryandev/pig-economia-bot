@@ -4,7 +4,7 @@ import { formatCurrency } from "../../helpers/format-values";
 import { SlashCommandBase } from "../../interfaces/slash-command-base.interface";
 import prisma from "../../libs/prisma";
 
-const WalletCommand: SlashCommandBase = {
+const DailyCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
 		.setName("daily")
 		.setDescription("💰 Pegue sua remuneração diária."),
@@ -59,4 +59,4 @@ const WalletCommand: SlashCommandBase = {
 	}
 };
 
-export default WalletCommand;
+export default DailyCommand;

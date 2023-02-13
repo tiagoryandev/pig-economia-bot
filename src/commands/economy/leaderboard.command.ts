@@ -4,7 +4,7 @@ import prisma from "../../libs/prisma";
 import { SlashCommandBase } from "../../interfaces/slash-command-base.interface";
 import { formatCurrency } from "../../helpers/format-values";
 
-const WalletCommand: SlashCommandBase = {
+const LeaderboardCommand: SlashCommandBase = {
 	data: new SlashCommandBuilder()
 		.setName("rank")
 		.setDescription("💰 Veja os usuários mais ricos."),
@@ -28,4 +28,4 @@ const WalletCommand: SlashCommandBase = {
 	}
 };
 
-export default WalletCommand;
+export default LeaderboardCommand;
