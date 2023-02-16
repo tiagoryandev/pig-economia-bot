@@ -16,8 +16,15 @@ const PayCommand: SlashCommandBase = {
 			input
 				.setName("valor")
 				.setDescription("Valor que será enviado no pagamento.")
-				.setMinValue(1)),
+				.setMinValue(1)
+				.setRequired(true)
+		),
 	execute: async (client, interaction) => {
+		const inputValue = interaction.options.getNumber("valor", true);
+		const currency = Number(inputValue.toFixed(2)) * 100;
+
+		console.log(inputValue, currency);
+
 		await interaction.reply({
 			content: "pagado"
 		});

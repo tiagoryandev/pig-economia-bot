@@ -17,5 +17,21 @@ model Users {
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt
 
+  authorTransaction   Transactions[] @relation("AuthorTransaction")
+  receiverTransaction Transactions[] @relation("ReceiverTransaction")
+
   @@map("users")
+}
+
+model Transactions {
+  id         String   @id @default(cuid())
+  authorId   String   @map("author_id")
+  receiverId String   @map("receiver_id")
+  value      BigInt
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  author   Users @relation(name: "AuthorTransaction", fields: [authorId], references: [id], onDelete: Cascade)
+  receiver Users @relation(name: "ReceiverTransaction", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@map("transactions")
 }
